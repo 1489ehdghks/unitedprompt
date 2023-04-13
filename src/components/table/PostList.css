@@ -1,0 +1,12 @@
+.App {
+    text-align: center;
+  }
+  .App-header {
+    background-color: #ffffff;
+    font-size: calc(10px + 2vmin);
+    color: black;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
