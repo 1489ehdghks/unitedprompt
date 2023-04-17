@@ -1,0 +1,15 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 16px;
+  }
+.article-card {
+    width: 200px; /* Set the desired width */
+    margin: 0 auto;
+  }
+.article-image {
+    object-fit: cover;
+    width: 100%;
+    height: 240px; /* 4 inches (assuming 60 pixels per inch) */
+  }
+  

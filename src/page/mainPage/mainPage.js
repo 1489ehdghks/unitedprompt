@@ -1,5 +1,4 @@
 import './mainPage.css';
-import PostList from '../../components/table/PostList';
 import { useState } from 'react';
 import SideMenu from '../../menu/sideMenu';
 import { FcMenu } from "react-icons/fc";
@@ -18,10 +17,10 @@ function MainPage() {
             <header className="MainPage-header">
                 <figure>
                   <TopMenu/>
-                    <p>
+                </figure>
+                <p>
                     <img src={logo2} alt="Logo2" />
                     </p>
-                </figure>
             </header>
             <body>
         {<button className="menu" 
