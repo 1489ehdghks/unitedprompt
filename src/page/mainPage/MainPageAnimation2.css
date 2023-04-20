@@ -1,0 +1,28 @@
+    .MainPageAnimation2 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .MainPageAnimation2-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5);
+    z-index: -1;
+  }
+  
+  .MainPageAnimation2-content {
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    padding: 1rem;
+  }
+  

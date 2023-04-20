@@ -1,16 +1,17 @@
 import './mainPage.css';
 import { useState } from 'react';
-import SideMenu from '../../menu/sideMenu';
-import { FcMenu } from "react-icons/fc";
-import { VscChromeClose } from "react-icons/vsc";
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TopMenu from '../../menu/topMenu';
 import logo2 from '../../image/logo/logo2.png'
 import BestPictureBox from '../../components/bestPictureBox/bestPictureBox';
-import SerchBar from '../../components/searchbar/serchBar';
+import MainPageAnimation from './mainPageAnimation';
+import MainPageAnimation2 from './mainPageAnimation2';
+import MainPageImageSection from './mainPageImageSection';
+
+
 
 function MainPage() {
-    const [visible,setVisible]=useState(false);
   return (
     <div className="MainPage">
         
@@ -19,17 +20,12 @@ function MainPage() {
                   <TopMenu/>
                 </figure>
                 <p>
-                    <img src={logo2} alt="Logo2" />
-                    </p>
+                  <img src={logo2} alt="Logo2" />
+                </p>
             </header>
             <body>
-        {<button className="menu" 
-            onClick={()=>{
-              setVisible(!visible);
-        }}>
-          {visible?<VscChromeClose/>:<FcMenu />}
-        </button>}
-        {visible && <SideMenu/>}
+        <MainPageAnimation/>
+        <MainPageAnimation2/>
         <BestPictureBox/>
       </body>
     </div>

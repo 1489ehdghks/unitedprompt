@@ -1,0 +1,54 @@
+/* topMenu.css */
+:root {
+    --primary-color: #9E37D1;
+    --dark-bg-color: white;
+    --text-color: #1b1b1b;
+  }
+  
+  .nav-link:hover,
+  .navbar-brand:hover {
+    color: var(--primary-color) !important;
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg-color);
+  }  
+  /* Apply the dark background color to the header */
+  .navbar {
+    background-color: var(--dark-bg-color);
+  }
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif, 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  .dropdown-menu {
+    background-color: var(--dark-bg-color);
+    border: none;
+  }
+  
+  .dropdown-item {
+    color: var(--text-color);
+  }
+  
+  .menu-items {
+    font-family:"Fira Sans";
+    color: #9E37D1;
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+/* color: #f9c633; */

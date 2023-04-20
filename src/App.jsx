@@ -11,7 +11,7 @@ import MainPage from './page/mainPage/mainPage';
 import WritingPage from './page/WritingPage';
 import LearnPage from './Theme/learner/page/learnPage';
 import LearnWritingPage from './Theme/learner/page/learnWritingPage';
-
+import "./App.css";
 
 function App() {
 

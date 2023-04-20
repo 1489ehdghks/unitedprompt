@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Tabs, Tab, Container, Row, Col, Nav } from "react-bootstrap";
 import LearnPageMain from "./learnPageMain";
-import LearnPageSideMenu from "../components/Menu/learnSideMenu";
+import LearnTopMenu from "../components/Menu/learnTopMenu";
 import TopMenu from "../../../menu/topMenu";
-import SideMenu from "../../../menu/sideMenu";
-import { FcMenu } from "react-icons/fc";
-import { VscChromeClose } from "react-icons/vsc";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './learnPage.css';
 
 
 function LearnPage() {
@@ -14,19 +12,14 @@ function LearnPage() {
   const [key, setKey] = useState("basic");
 
   return (
-    <div className="MainPage">
-        
-    <header className="MainPage-header">
-        <figure>
-          <TopMenu/>
-        </figure>
-    </header>
-    <Container fluid>
-      <Row>
-        <Col md={2} className="side-menu">
-          <LearnPageSideMenu/>
-        </Col>
-        
+    <div>
+
+    <div className="LearnPage-body">
+    <div className="LearnPage-header">
+      <LearnTopMenu/>
+    </div>
+    <Container fluid className="content-container">
+      <Row className="content-row">
         <Col md={10}>
           <Tabs activeKey={key} onSelect={(k) => setKey(k)}>
             <Tab eventKey="basic" title="Basic">
@@ -116,15 +109,11 @@ function LearnPage() {
         </Col>
       </Row>
     </Container>
-    <body>
-        {<button className="menu" 
-            onClick={()=>{
-              setVisible(!visible);
-        }}>
-          {visible?<VscChromeClose/>:<FcMenu />}
-        </button>}
-        {visible && <SideMenu/>}
-      </body>
+    </div>
+
+    <div className="LearnPage-footer">
+
+    </div>
     </div>
   );
 }

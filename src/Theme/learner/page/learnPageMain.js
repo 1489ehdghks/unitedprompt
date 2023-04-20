@@ -55,6 +55,8 @@ function LearnPageMain() {
       <Button variant="primary" onClick={handleNewArticle} className="my-3">
         Write New Article
       </Button>
+      <div className="main-content">
+      <div className="card-container">
       {/* Render the list of articles */}
       {currentArticles.map((article, index) => (
         <Card style={{ width: '18rem' }} key={article.id} className="mb-3">
@@ -66,7 +68,11 @@ function LearnPageMain() {
           </Card.Body>
         </Card>
       ))}
+      </div>
+    </div>
+    <div className="footer">
       <Pagination>{renderPaginationItems()}</Pagination>
+      </div>
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Write a New Article</Modal.Title>
