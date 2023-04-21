@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Tabs, Tab, Container, Row, Col, Nav } from "react-bootstrap";
 import LearnPageMain from "./learnPageMain";
-import LearnTopMenu from "../components/Menu/learnTopMenu";
 import TopMenu from "../../../menu/topMenu";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './learnPage.css';
@@ -12,27 +11,28 @@ function LearnPage() {
   const [key, setKey] = useState("basic");
 
   return (
-    <div>
-
+    <div className="LearnPage">
     <div className="LearnPage-body">
-    <div className="LearnPage-header">
-      <LearnTopMenu/>
-    </div>
+    <header className="LearnPage-header">
+      <TopMenu/>
+    </header>
+
+    <section>
     <Container fluid className="content-container">
       <Row className="content-row">
         <Col md={10}>
-          <Tabs activeKey={key} onSelect={(k) => setKey(k)}>
+          <Tabs className="rounded-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
             <Tab eventKey="basic" title="Basic">
             <Row>
-        <Col lg={10}>
+        <Col>
           <Tab.Container defaultActiveKey="basic">
             <Row>
-              <Col sm={9}>
+              <Col>
                 <Tab.Content>
                   <Tab.Pane eventKey="basic">
-                    <Row>
+
                       <LearnPageMain/>
-                    </Row>
+
                   </Tab.Pane>
                   {/* Other tab panes */}
                 </Tab.Content>
@@ -109,8 +109,8 @@ function LearnPage() {
         </Col>
       </Row>
     </Container>
+    </section>
     </div>
-
     <div className="LearnPage-footer">
 
     </div>

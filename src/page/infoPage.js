@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InfoTopMenu from '../menu/infoTopMenu';
+import './infoPage.css'
 
 const InfoPage = () => {
 

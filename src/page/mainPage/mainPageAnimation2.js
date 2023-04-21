@@ -1,42 +1,30 @@
-import React, { useRef, useEffect } from 'react';
-import { useInView } from "react-intersection-observer";
-import { gsap } from 'gsap';
+import React, { useState } from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 import './MainPageAnimation2.css';
 
 const MainPageAnimation2 = ({ image, title, content }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-  });
+  const [isVisible, setIsVisible] = useState(false);
 
-  const titleRef = useRef(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const tl = gsap.timeline({ paused: true });
-    tl.from(titleRef.current, { opacity: 0, x: -100, duration: 1 });
-    tl.from(contentRef.current, { opacity: 0, x: 100, duration: 1 });
-
-    if (inView) {
-      tl.play();
-    } else {
-      tl.reverse();
+  const onChange = (visible) => {
+    if (visible) {
+      setIsVisible(true);
     }
-  }, [inView]);
+  };
 
   return (
-    <section className="animated-section" ref={ref}>
-      <div
-        className="animated-section-bg"
-        style={{ backgroundImage: `url(${image})` }}
-      ></div>
-      <div className="animated-section-content">
-        <h2 ref={titleRef}>{title}</h2>
-        <p ref={contentRef}>{content}</p>
+    <section className="MainPageAnimation2">
+      <VisibilitySensor onChange={onChange}>
+        <div
+          className={`MainPageAnimation2-bg ${isVisible ? 'visible' : ''}`}
+          style={{ backgroundImage: `url(${image})` }}
+        ></div>
+      </VisibilitySensor>
+      <div className={`MainPageAnimation2-content ${isVisible ? 'visible' : ''}`}>
+        <h2>{title}</h2>
+        <p>{content}</p>
       </div>
     </section>
   );
 };
 
 export default MainPageAnimation2;
-
-

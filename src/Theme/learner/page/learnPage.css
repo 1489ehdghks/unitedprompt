@@ -13,28 +13,8 @@
     color: black;
   }
   
-  .LearnPage-link {
-    color: #61dafb;
-  }
-  
-  .menu{
-  /* text-align: center; */
-  top: 10px;
-  right: 20px;
-  position: fixed;
-  border: none;
-  border-radius: 16px;
-  background-color: #ffffff;
-  color: purple;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: calc(10px + 2vmin);
-  border:none;
-  }
-
-
   .content-container {
+    font-family: 'Segoe UI', sans-serif;
     padding-top: 5rem;
     padding-bottom: 1rem;
   }
@@ -42,4 +22,14 @@
   .content-row {
     margin-left: 0;
     margin-right: 0;
+  }
+  
+  .rounded-tabs .nav-link {
+    border-radius: 20px;
+    margin: 0 5px;
+  }
+  
+  .rounded-tabs .nav-link.active {
+    background-color: #007BFF;
+    color: white;
   }

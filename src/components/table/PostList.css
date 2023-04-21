@@ -1,12 +1,12 @@
-.App {
+.PostList {
     text-align: center;
   }
-  .App-header {
+  .PostList-header {
     background-color: #ffffff;
     font-size: calc(10px + 2vmin);
     color: black;
   }
   
-  .App-link {
+  .PostList-link {
     color: #61dafb;
   }

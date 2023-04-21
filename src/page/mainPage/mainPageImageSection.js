@@ -6,7 +6,7 @@ const MainPageImageSection = ({ image, description, size }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   return (

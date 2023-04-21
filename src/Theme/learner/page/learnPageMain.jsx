@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, Button, Modal,Pagination } from 'react-bootstrap';
+import { Card, Button, Modal,Pagination,Carousel } from 'react-bootstrap';
 import LearnWritingPage from './learnWritingPage';
 import './LearnPageMain.css';
 
@@ -9,7 +9,7 @@ function LearnPageMain() {
   const [showModal, setShowModal] = useState(false);
   const [articles, setArticles] = useState([]);
   const [activePage, setActivePage] = useState(1);
-  const articlesPerPage = 24;
+  const articlesPerPage = 6;
   const handlePageClick = (pageNumber) => {
     setActivePage(pageNumber);
   };
@@ -50,37 +50,41 @@ function LearnPageMain() {
     setShowModal(false);
   };
 
+  
   return (
     <div>
-      <Button variant="primary" onClick={handleNewArticle} className="my-3">
+      <Button variant="outline-dark" onClick={handleNewArticle} className="my-3 float-right">
         Write New Article
       </Button>
       <div className="main-content">
       <div className="card-container">
-      {/* Render the list of articles */}
-      {currentArticles.map((article, index) => (
-        <Card style={{ width: '18rem' }} key={article.id} className="mb-3">
-            
-          <Card.Img variant="top" src={article.image} className="article-image" />
-          <Card.Body>
-            <Card.Title>{article.title}</Card.Title>
-            <Card.Text>{article.summary}</Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
+      <Carousel>
+        {currentArticles.map((article, index) => {
+          if (index % 6 === 0) {
+            return (
+              <Carousel.Item key={article.id}>
+                <article>
+                  {currentArticles.slice(index, index + 6).map((article) => (
+                    <Card style={{ width: '18rem' }} key={article.id} className="mb-3">
+                      <Card.Img variant="top" src={article.image} className="article-image" />
+                        <Card.Body>
+                          <Card.Title>{article.title}</Card.Title>
+                          <Card.Text>{article.summary}</Card.Text>
+                        </Card.Body>
+                      </Card>
+                   ))}
+          </article>
+        </Carousel.Item>
+      );
+    }
+    return null;
+  })}
+</Carousel>
       </div>
     </div>
     <div className="footer">
       <Pagination>{renderPaginationItems()}</Pagination>
       </div>
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Write a New Article</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <LearnWritingPage onSave={handleSaveArticle} onCancel={handleCloseModal} />
-        </Modal.Body>
-      </Modal>
     </div>
   );
 }

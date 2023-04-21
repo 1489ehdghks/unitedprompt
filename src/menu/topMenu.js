@@ -94,7 +94,7 @@ const TopMenu = () => {
         </Nav.Link>
         </Nav>
 
-        <Nav className="position-fixed" style={{ top: 14, right: 180, width: 200 }}>
+        <Nav className="position-fixed" style={{ top: 14, right: 150, width: 200 }}>
           <Nav.Link href="#about"
           onMouseOver={() => handleMouseOver(0)}
           onMouseOut={handleMouseOut}>
@@ -108,15 +108,15 @@ const TopMenu = () => {
           </NavDropdown>
           )}
         </Nav.Link>
+
         <Nav className="position-fixed" style={{ top: 11, right: -10, width: 200 }}>
           <Nav.Link href="/"><VscHome/></Nav.Link>
         </Nav>
 
-        {<Nav className="menu" style={{ top: 14}} onClick={()=>{setVisible(!visible);}}>
+        {<Nav className="position-fixed" style={{ top: 28, right: -120, width: 200 }} onClick={()=>{setVisible(!visible);}}>
         {visible?<VscChromeClose/>:<VscMenu/>}
       </Nav>}
-      {visible && <SideMenu/>}
-
+            {visible && <SideMenu/>}
       </Nav>
     </Nav>
     </Navbar.Collapse>

@@ -1,9 +1,10 @@
 .mainPageAnimation {
-    background-color: lightgray;
-    color: #fff;
+    background-color: white;
+    color: rgb(115, 54, 150);
     height: 100vh;
     overflow: hidden;
     position: relative;
+    font-family: 'Noto Sans KR';
   }
   
   .full-height {
