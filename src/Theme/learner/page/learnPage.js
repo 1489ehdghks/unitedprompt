@@ -20,8 +20,8 @@ function LearnPage() {
     <section>
     <Container fluid className="content-container">
       <Row className="content-row">
-        <Col md={10}>
-          <Tabs className="rounded-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
+        <Col>
+          <Tabs className="rounded-tabs" >
             <Tab eventKey="basic" title="Basic">
             <Row>
         <Col>
@@ -30,9 +30,7 @@ function LearnPage() {
               <Col>
                 <Tab.Content>
                   <Tab.Pane eventKey="basic">
-
                       <LearnPageMain/>
-
                   </Tab.Pane>
                   {/* Other tab panes */}
                 </Tab.Content>
@@ -44,11 +42,11 @@ function LearnPage() {
     </Tab>
     
     <Tab eventKey="terminology" title="terminology">
-            <Row>
-        <Col lg={10}>
+      <Row>
+        <Col>
           <Tab.Container defaultActiveKey="terminology">
             <Row>
-              <Col sm={9}>
+              <Col>
                 <Tab.Content>
                   <Tab.Pane eventKey="terminology">
                     <Row>
@@ -66,10 +64,10 @@ function LearnPage() {
 
     <Tab eventKey="Research" title="Research">
             <Row>
-        <Col lg={10}>
+        <Col>
           <Tab.Container defaultActiveKey="Research">
             <Row>
-              <Col sm={9}>
+              <Col>
                 <Tab.Content>
                   <Tab.Pane eventKey="Research">
                     <Row>

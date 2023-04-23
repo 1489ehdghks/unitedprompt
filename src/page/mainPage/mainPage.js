@@ -1,13 +1,11 @@
+import MainPageCarousel from './mainPageCarousel';
+import MainPageContainer from './mainPageContainer';
 import './mainPage.css';
-import { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TopMenu from '../../menu/topMenu';
 import logo2 from '../../image/logo/logo2.png'
-import BestPictureBox from '../../components/bestPictureBox/bestPictureBox';
-import MainPageAnimation from './mainPageAnimation';
-import MainPageAnimation2 from './mainPageAnimation2';
-import MainPageCarousel from './mainPageCarousel';
+import BestPictureBox from '../../components/bestPictureBox/bestPictureBox';;
+
 
 
 function MainPage() {
@@ -23,8 +21,8 @@ function MainPage() {
                 </nav>
             </header>
             <section>
-              <article>
-              <MainPageAnimation/>
+            <article>
+              <MainPageContainer/>
               </article>
               <article>
               <MainPageCarousel/>

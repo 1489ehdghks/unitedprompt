@@ -9,7 +9,7 @@ function LearnPageMain() {
   const [showModal, setShowModal] = useState(false);
   const [articles, setArticles] = useState([]);
   const [activePage, setActivePage] = useState(1);
-  const articlesPerPage = 6;
+  const articlesPerPage = 12;
   const handlePageClick = (pageNumber) => {
     setActivePage(pageNumber);
   };
@@ -41,7 +41,7 @@ function LearnPageMain() {
   };
 
   const handleSaveArticle = (newArticle) => {
-    newArticle.id = articles.length + 1;
+
     setArticles([...articles, newArticle]);
     setShowModal(false);
   };
@@ -59,32 +59,47 @@ function LearnPageMain() {
       <div className="main-content">
       <div className="card-container">
       <Carousel>
-        {currentArticles.map((article, index) => {
-          if (index % 6 === 0) {
-            return (
-              <Carousel.Item key={article.id}>
-                <article>
-                  {currentArticles.slice(index, index + 6).map((article) => (
-                    <Card style={{ width: '18rem' }} key={article.id} className="mb-3">
-                      <Card.Img variant="top" src={article.image} className="article-image" />
-                        <Card.Body>
-                          <Card.Title>{article.title}</Card.Title>
-                          <Card.Text>{article.summary}</Card.Text>
-                        </Card.Body>
-                      </Card>
-                   ))}
-          </article>
-        </Carousel.Item>
-      );
-    }
-    return null;
-  })}
-</Carousel>
+        {[...Array(Math.ceil(currentArticles.length / 12))].map((_, page) => {
+          const pageStartIndex = page * 12;
+          return (
+            <Carousel.Item key={page}>
+              <div className="row">
+                {[...Array(4)].map((_, colIndex) => {
+                  const cardStartIndex = pageStartIndex + colIndex * 3;
+                  return (
+                    <div className="col-md-3" key={colIndex}>
+                      {currentArticles
+                        .slice(cardStartIndex, cardStartIndex + 3)
+                        .map((article) => (
+                          <Card key={article.id} className="mb-3">
+                            <Card.Img variant="top" src={article.image} className="article-image" />
+                            <Card.Body>
+                              <Card.Title>{article.title}</Card.Title>
+                              <Card.Text>{article.summary}</Card.Text>
+                            </Card.Body>
+                          </Card>
+                        ))}
+                    </div>
+                  );
+                })}
+              </div>
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
       </div>
     </div>
     <div className="footer">
       <Pagination>{renderPaginationItems()}</Pagination>
       </div>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Write a New Article</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <LearnWritingPage onSave={handleSaveArticle} onCancel={handleCloseModal} />
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
